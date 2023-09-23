@@ -1,0 +1,96 @@
+.headerStyles {
+  background-color: black;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  position: relative;
+  z-index: 1001;
+}
+
+.headingStyles {
+  margin: 0 20px;
+  font-size: 34px;
+}
+
+.icon {
+  margin-right: 10px;
+  font-size: 50px;
+  cursor: pointer;
+}
+
+.hamburgerWrapper {
+  cursor: pointer;
+  z-index: 1002;
+}
+
+.userContainerStyles {
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  height: 50px;
+  width: 150px;
+  border-radius: 50px;
+  background-color: rgb(37, 103, 161);
+}
+
+.userDropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: black;
+  border: 1px solid white;
+  display: flex;
+  flex-direction: column;
+}
+
+.userDropdown button {
+  background-color: black;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.userDropdown button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: 60px;
+  width: 250px;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
+  transition: 0.3s ease-in-out;
+  transform: translateX(-100%);
+  z-index: 1001;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.sidebar button {
+  width: 100%;
+  height: 50px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  margin: 5px 0;
+  padding: 10px 15px;
+  cursor: pointer;
+  text-align: left;
+  transition: background-color 0.2s ease;
+}
+
+.sidebar button:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}

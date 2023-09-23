@@ -1,14 +1,22 @@
 import * as React from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import '../assets/css/loginAndSignUp.css'
+import { useDispatch } from 'react-redux';
+import { Login } from './Redux/UserSlice';
+import {BsFillPersonFill} from 'react-icons/bs'
+import { useUser } from './context/UserContext';
 
 const LoginAndSignUp=()=>{
+    const navigate = useNavigate();
+    const {login: userLogin}=useUser();
     const [isFlipped, setIsFlipped] = useState(false);
 
     const flipForm = () => {
         setIsFlipped(!isFlipped);
     };
+    const dispatch=useDispatch();
 
     const[loginFormData,setLoginFormData]=React.useState({
         username:"",
@@ -16,8 +24,8 @@ const LoginAndSignUp=()=>{
     })
     const[signUpFormData,setSignUpFormData]=React.useState({
         email:"",
-        username:"",
-        password:""
+        newUsername:"",
+        newPassword:""
     })
 
     
@@ -39,10 +47,22 @@ const LoginAndSignUp=()=>{
 
     const submitLoginForm = (e) => {
         e.preventDefault();
-        console.log(loginFormData);
-    }
+        if(!loginFormData.username || !loginFormData.password){
+            console.log("Please enter details");
+        }
+        else
+            console.log(loginFormData);
+        dispatch(Login({ 
+            username: loginFormData.username,
+            password: loginFormData.password
+        }));
+        navigate('/BarChart');
+        userLogin();
+        
+      }
 
-    const submitSignUpForm = (e) => {
+    const submitSignUpForm = (e) => 
+    {
        e.preventDefault();
         console.log(signUpFormData);
     }
@@ -52,36 +72,38 @@ const LoginAndSignUp=()=>{
             <div className={`forms-container ${isFlipped ? 'flipped' : ''}`}>
                 <div className='form-box login'>
                     <h1>Login</h1>
+                    <BsFillPersonFill className='icon'></BsFillPersonFill>
                     <form onSubmit={submitLoginForm} className='loginForm'>
                         <div className='username'>
-                            <input type="email" name="username" id="username" placeholder='username' onChange={handleLoginFormChange}/>
+                            <input type="text" name="username" id="username" placeholder='username' autoComplete="current-username" onChange={handleLoginFormChange}/>
                         </div>
                         <div className='password'>
-                            <input type="password" name="password" id="password" placeholder="password" onChange={handleLoginFormChange}/>
+                            <input type="password" name="password" id="password" placeholder="password" autoComplete="current-password" onChange={handleLoginFormChange}/>
                         </div>
                         <div className='loginButton'>
                             <button type="submit">Login</button>
                         </div> 
-                        <Link to="#" onClick={flipForm}>If you didn't have an account</Link>                   
+                        <Link to="#" onClick={flipForm} className='linkText'>If you don't have an account? Sign Up</Link>                   
                     </form>
                 </div>
             <div className='form-box signup'>
                 <h1>SignUp</h1>
+                    <BsFillPersonFill className='icon'></BsFillPersonFill>
                 <form onSubmit={submitSignUpForm} className='signUpForm'>
                     <div className='email'>
                         <input type='email' name='email' id='email' placeholder='email' onChange={handleSignUpFormChange}></input>
                     </div>
-                    <div className='username'>
+                    <div className='newUsername'>
                         
-                        <input type="text" name="username" id="username" placeholder='username' onChange={handleSignUpFormChange}/>
+                        <input type="text" name="newUsername" id="newUsername" placeholder='username' autoComplete="current-username"    onChange={handleSignUpFormChange}/>
                     </div>
-                    <div className='password'>
-                        <input type="password" name="password" id="password" placeholder="password" onChange={handleSignUpFormChange}/>
+                    <div className='newPassword'>
+                        <input type="password" name="newPassword" id="newPassword" placeholder="password" autoComplete="current-password" onChange={handleSignUpFormChange}/>
                     </div>
                     <div className='signUpButton'>
                         <button type="submit">SignUp</button>
                     </div>
-                    <Link to="#" onClick={flipForm}>If you have an account</Link>
+                    <Link to="#" onClick={flipForm} className='linkText'>If you have an account? Login</Link>
                 </form>
             </div>
             </div>
