@@ -1,0 +1,62 @@
+/* Resetting basic browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;  /* Using Arial as an example; use any preferred font */
+}
+
+body {
+    background: #1e213a;  /* A deep gradient background for modern appearance */
+    background-image: linear-gradient(120deg, #1e213a 0%, #3f4c6b 100%);
+    color: #ffffff;  /* General white color for better contrast against dark background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.no-projects {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 70vh;
+    color: #e0e0e0;
+    text-shadow: 2px 2px 4px #000;  /* A slight shadow for depth */
+}
+
+.no-projects img {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 20px;
+    border-radius: 50%;  /* Rounded edges for a soft look */
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.3);  /* Shadow for depth */
+}
+
+/* A more dynamic Create Project button */
+.create-project-btn {
+    background: linear-gradient(45deg, #ff6ec4, #7873f5); /* Gradient background */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;  /* Rounded corners for button */
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;  /* Making font bold for emphasis */
+    letter-spacing: 1px;  /* Slight letter spacing for modern touch */
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    transition: all 0.3s ease;  /* Smooth transition for all effects */
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);  /* Shadow for more depth */
+}
+
+.create-project-btn:hover {
+    background: linear-gradient(45deg, #7873f5, #ff6ec4);  /* Swap gradient colors */
+    transform: translateY(-3px);  /* Slight lift to button for interactive effect */
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);  /* Increased shadow depth on hover */
+}
+
+/* If you have any animations or specific interactive elements you'd like to incorporate, those can be added too. This style gives a modern, dynamic appearance to your page. Adjust as necessary! */
