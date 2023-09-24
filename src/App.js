@@ -4,6 +4,7 @@ import AppRoutes from './components/Routing';
 import 'font-awesome/css/font-awesome.min.css';
 import Header from './components/Header';
 import { BrowserRouter } from 'react-router-dom';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <UserProvider>
         <Header/>
         <AppRoutes />
+        <Footer/>
       </UserProvider>
     </BrowserRouter>
   );

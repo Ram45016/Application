@@ -1,39 +1,49 @@
-/* Assuming that your app's root div is with the class .app */
-.app {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-/* The main content should take up all available space */
-.main-content {
-  flex: 1;
-}
+/* Footer.css */
 
 .footer {
+  width: 100%;
+  padding: 20px 0;
   background-color: #000000;
-  color: #fff;
-  padding: 10px;
-  height: 50px;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
 }
 
 .footer-container {
-  max-width: 2000px;
-  margin: 0 auto;
+  width: 90%;
+  max-width: 1200px;
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  flex-wrap: wrap;  /* To make it responsive */
 }
 
 .footer-section {
-  margin-bottom: 90px;
+  flex: 1;
+  padding: 20px;
+  min-width: 200px; /* You can adjust based on your design */
 }
 
-.footer-link {
-  color: white;
+.footer-link, .footer-icon-link {
+  margin: 10px 0;
+  display: block;
   text-decoration: none;
+  color: #ffffff;
 }
 
-.footer-link:hover {
-  text-decoration: underline;
+.footer-icon {
+  display: flex; /* Set this to flex to have icons in a row */
+    justify-content: space-between; /* This will spread the icons evenly across available space */
+    align-items: center;
+}
+
+/* For smaller screens */
+@media (max-width: 768px) {
+  .footer-container {
+      flex-direction: column;
+  }
+
+  .footer-section {
+      text-align: center;
+  }
 }

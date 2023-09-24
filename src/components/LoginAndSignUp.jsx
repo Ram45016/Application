@@ -72,7 +72,7 @@ const LoginAndSignUp=()=>{
             <div className={`forms-container ${isFlipped ? 'flipped' : ''}`}>
                 <div className='form-box login'>
                     <h1>Login</h1>
-                    <BsFillPersonFill className='icon'></BsFillPersonFill>
+                    <BsFillPersonFill className='user-icon'></BsFillPersonFill>
                     <form onSubmit={submitLoginForm} className='loginForm'>
                         <div className='username'>
                             <input type="text" name="username" id="username" placeholder='username' autoComplete="current-username" onChange={handleLoginFormChange}/>
@@ -81,14 +81,14 @@ const LoginAndSignUp=()=>{
                             <input type="password" name="password" id="password" placeholder="password" autoComplete="current-password" onChange={handleLoginFormChange}/>
                         </div>
                         <div className='loginButton'>
-                            <button type="submit">Login</button>
+                            <button className='login-button' type="submit">Login</button>
                         </div> 
                         <Link to="#" onClick={flipForm} className='linkText'>If you don't have an account? Sign Up</Link>                   
                     </form>
                 </div>
             <div className='form-box signup'>
                 <h1>SignUp</h1>
-                    <BsFillPersonFill className='icon'></BsFillPersonFill>
+                    <BsFillPersonFill className='user-icon'></BsFillPersonFill>
                 <form onSubmit={submitSignUpForm} className='signUpForm'>
                     <div className='email'>
                         <input type='email' name='email' id='email' placeholder='email' onChange={handleSignUpFormChange}></input>
@@ -101,7 +101,7 @@ const LoginAndSignUp=()=>{
                         <input type="password" name="newPassword" id="newPassword" placeholder="password" autoComplete="current-password" onChange={handleSignUpFormChange}/>
                     </div>
                     <div className='signUpButton'>
-                        <button type="submit">SignUp</button>
+                        <button className='login-button' type="submit">SignUp</button>
                     </div>
                     <Link to="#" onClick={flipForm} className='linkText'>If you have an account? Login</Link>
                 </form>

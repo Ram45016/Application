@@ -25,13 +25,7 @@ body, html {
     text-align: center;
 }
 
-.footer {
-    grid-area: footer;
-    background-color: #2b579a;
-    color: white;
-    padding: 10px;
-    text-align: center;
-}
+
 
 .left-column {
     grid-area: left-column;

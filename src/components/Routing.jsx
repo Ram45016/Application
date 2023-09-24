@@ -11,6 +11,16 @@ import ProjectEnvironment from './pages/ProjectEnvironment';
 import DrawingCanvas from './Drawing';
 import MusicComposing from './MusicComposing';
 import WritingPad from './WrittingPad';
+import Aboutus from './Aboutus'; // Import the About Us component
+import FaqPopup from './FaqPopup';
+import TermsAndConditions from './TermsAndConditions';
+import PrivacyPolicy from './PrivacyPolicy';
+import AssetsPage from './AssetsPage';
+import YourWorks from './YourWorks';
+import UploadPage from './UploadPage'
+import FollowersPage from './FollowersPage';
+import Home from './Home';
+import Footer from './Footer';
 import '../assets/css/App.css'
 
 const PrivateRoute=({children})=>{
@@ -38,6 +48,16 @@ const AppRoutes = () => {
                <Route path="/Drawing" element={<DrawingCanvas/>} />
                <Route path="/Music" element={<MusicComposing/>} />
                <Route path="/write" element={<WritingPad/>} />
+               <Route path="/about-us" element={<Aboutus />} /> {/* Route for the About Us page */}
+        <Route path="/faq" element={<FaqPopup />} />
+        <Route path="/terms-and-conditions" element={<TermsAndConditions />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/assets" element={<AssetsPage />} />
+        <Route path="/your-works" element={<YourWorks />} />
+        <Route path="/Homepage" element={<Home />} />
+        <Route path="/uploadpage" element={<UploadPage />} />
+        <Route path="/followers" element={<FollowersPage />} />
+        <Route path="/footer" element={<Footer />} />
             </Routes>
       </div>
   );
