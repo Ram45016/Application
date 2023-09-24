@@ -1,51 +1,40 @@
 import React, { useState, useEffect } from 'react';
 import '../../assets/css/ProjectView.css';
-import { Navigate, useNavigate } from 'react-router-dom';
-
-let projectCounter = 1;  // Global counter outside the component
+import { useNavigate } from 'react-router-dom';
 
 const ProjectView = ({ project = {} }) => {
     const [showDetails, setShowDetails] = useState(false);
-    const [projectNumber, setProjectNumber] = useState(0);
-    const navigate=useNavigate();
-
-    useEffect(() => {
-        setProjectNumber(projectCounter++); // Increment the counter when a project is mounted
-    }, []);
+    const navigate = useNavigate();
 
     return (
         <div className="project-view">
             <table>
                 <thead>
                     <tr>
-                        <th>Project Number</th>
+                        <th>Project ID</th>
                         <th>Project Title</th>
                         <th>Details</th>
-                        {project.type === 'visual' && (
                         <th>Environment</th>
-                        )}
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>{projectNumber}</td>
+                        <td>{project.projectId || 'N/A'}</td>
                         <td>{project.title || 'No Title Provided'}</td>
                         <td>
                             <button onClick={() => setShowDetails(!showDetails)}>
                                 {showDetails ? "Less Info" : "More Info"}
                             </button>
                         </td>
-                            {project.type === 'visual' && (
                         <td>
-                                <button onClick={() => navigate('/environment')}>
-                                    Open Environment
-                                </button>
+                            <button onClick={() => navigate(`/environment/${project.projectId}`) }>
+                                Open Environment
+                            </button>
                         </td>
-                            )}
                     </tr>
                     {showDetails && (
                         <tr>
-                            <td colSpan="3">
+                            <td colSpan="4">
                                 <div className="project-details">
                                     <div className="project-column">
                                         <p><strong>Description:</strong> {project.description || 'No Description Provided'}</p>

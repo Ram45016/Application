@@ -1,16 +1,22 @@
+
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import '../assets/css/Drawing.css';
 
-const DrawingCanvas = () => {
+const DrawingCanvas = ({ 
+    defaultColor = '#000000', 
+    defaultLineWidth = 5, 
+    defaultShape = 'Free Draw', 
+    defaultFillColor = '#FFFFFF' 
+}) => {
     const canvasRef = useRef(null);
     const contextRef = useRef(null);
     const [drawMode, setDrawMode] = useState(true);
 
     const [isDrawing, setIsDrawing] = useState(false);
-    const [color, setColor] = useState('#000000');
-    const [lineWidth, setLineWidth] = useState(5);
-    const [currentShape, setCurrentShape] = useState('Free Draw');
-    const [fillColor, setFillColor] = useState('#FFFFFF');
+    const [color, setColor] = useState(defaultColor);
+    const [lineWidth, setLineWidth] = useState(defaultLineWidth);
+    const [currentShape, setCurrentShape] = useState(defaultShape);
+    const [fillColor, setFillColor] = useState(defaultFillColor);
 
     useEffect(() => {
         const canvas = canvasRef.current;
@@ -108,9 +114,8 @@ const DrawingCanvas = () => {
     return (
         <div className='canvas-container'>
             <div className="app-title">Visual Art Project Environment</div>
-            <div className="workspace">
+            <div className="drawing-workspace">
                 <div className="drawing-tools">
-                    {/* ... All your tool components ... */}
                     <label>Color: 
                         <input type="color" value={color} onChange={(e) => setColor(e.target.value)} />
                     </label>

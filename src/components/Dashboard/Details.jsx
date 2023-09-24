@@ -12,7 +12,6 @@ const Detail = () => {
   return (
     <div className='page'>
     <div className='detail-body'>
-        <Header></Header>
       <main class="detail-main-container">
         <div class="detail-main-title">
          

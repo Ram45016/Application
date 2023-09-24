@@ -2,7 +2,7 @@
 import React, {useState} from 'react';
 import ReactApexChart from 'react-apexcharts';
 import Detail from './Details';
-import Footer from '../Footer';
+
 
 
 const BarChart = () => {
@@ -251,7 +251,6 @@ const areaChartOptions = {
           height={300}
         />
       </div>
-      <Footer />
     </>
   );
 };

@@ -16,6 +16,7 @@ export const UserSlice=createSlice ({
             state.user=null;
 
         }
+        
     }
 })
 export const {Login,Logout}=UserSlice.actions;

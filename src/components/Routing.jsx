@@ -9,6 +9,9 @@ import ProjectCreate from './pages/ProjectCreate';
 import ProjectView from './pages/ProjectView';
 import ProjectEnvironment from './pages/ProjectEnvironment';
 import DrawingCanvas from './Drawing';
+import MusicComposing from './MusicComposing';
+import WritingPad from './WrittingPad';
+import '../assets/css/App.css'
 
 const PrivateRoute=({children})=>{
     const {isUserLoggedin}=useUser();
@@ -19,11 +22,11 @@ const PrivateRoute=({children})=>{
 
 const AppRoutes = () => {
   return (
-        <BrowserRouter>
+    <div className="app-container">
             <Routes>
                 <Route exact path="/" element={<LoginAndSignUp/>} />
                 <Route path="/header" element={
-                    <PrivateRoute>
+                  <PrivateRoute>
                      <Header/>
                     </PrivateRoute>
                 } />
@@ -31,10 +34,12 @@ const AppRoutes = () => {
                <Route path="/project" element={<Project/>} />
                <Route path="/projectC" element={<ProjectCreate/>} />
                <Route path="/projectV" element={<ProjectView/>} />
-               <Route path="/environment" element={<ProjectEnvironment/>} />
+               <Route path="/environment/:projectId" element={<ProjectEnvironment/>} />
                <Route path="/Drawing" element={<DrawingCanvas/>} />
+               <Route path="/Music" element={<MusicComposing/>} />
+               <Route path="/write" element={<WritingPad/>} />
             </Routes>
-        </BrowserRouter>
+      </div>
   );
 };
 

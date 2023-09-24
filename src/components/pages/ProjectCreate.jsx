@@ -1,8 +1,12 @@
 import React, { useState } from 'react';
 import '../../assets/css/ProjectCreate.css';
+import { useDispatch } from 'react-redux';
+import { addProject } from '../Redux/ProjectSlice';
+import { v4 as uuidv4 } from 'uuid';
 
 function ProjectCreate({ onProjectCreate, onClose }) {
     const [project, setProject] = useState({
+        projectId: '',
         title: '',
         description: '',
         type: '',
@@ -14,16 +18,22 @@ function ProjectCreate({ onProjectCreate, onClose }) {
     const [newMember, setNewMember] = useState('');
     const [newGoal, setNewGoal] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+    const dispatch = useDispatch();
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
         if (!project.title || !project.description || !project.type || !project.privacy) {
-            alert("All fields are mandatory!"); // Set error message if any mandatory field is empty.
+            setErrorMessage("All fields are mandatory!"); // Use setErrorMessage instead of an alert
             return;
         }
+        const newProject = {
+            ...project,
+            projectId: uuidv4()
+        };
 
-        onProjectCreate(project);
+        onProjectCreate(newProject);
+        dispatch(addProject(newProject));  // Dispatch the action to add the project to Redux
         setErrorMessage(''); // Reset the error message.
     };
 
