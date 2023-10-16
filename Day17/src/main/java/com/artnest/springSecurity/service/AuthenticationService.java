@@ -11,7 +11,6 @@ import com.artnest.springSecurity.dto.request.RegisterRequest;
 import com.artnest.springSecurity.dto.response.AuthenticationResponse;
 import com.artnest.springSecurity.model.User;
 import com.artnest.springSecurity.model.enumerated.Role;
-import com.artnest.springSecurity.repository.UserRepositories;
 import com.artnest.springSecurity.repository.userRepository.UserRepository;
 
 import lombok.RequiredArgsConstructor;

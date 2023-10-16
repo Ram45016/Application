@@ -22,12 +22,13 @@ public class ArtServiceImpl implements ArtService{
 
     @Override
     public boolean saveArt(ArtRequestDto artRequest) {
-        Optional<ArtUpload> isArtOptional=artRepository.existsByTitle(artRequest.getTitle());
+        Optional<ArtUpload> isArtOptional=artRepository.existsByName(artRequest.getName());
         //projectRepository.existsByProjectName(projectRequest.getProjectName());
 		if(isArtOptional.isPresent()){
 			var art=ArtUpload.builder()
-					.title(artRequest.getTitle())
-					.fileLocation(artRequest.getFileLocation())
+					.name(artRequest.getName())
+                    .type(artRequest.getType())
+					.fileBytes(artRequest.getFileBytes())
 					.build();
 			artRepository.save(art);
 			return true;
@@ -45,8 +46,8 @@ public class ArtServiceImpl implements ArtService{
 		for (ArtUpload art : artList) {
 			ArtResponse artResponse = new ArtResponse(); 
 			artResponse.setArtId(art.getArtId());
-			artResponse.setTitle(art.getTitle());
-			artResponse.setFileLocation(art.getFileLocation());
+			artResponse.setTitle(art.getName());
+			artResponse.setFileLocation(art.getFileBytes());
 	
 			artResponseList.add(artResponse);
 		}

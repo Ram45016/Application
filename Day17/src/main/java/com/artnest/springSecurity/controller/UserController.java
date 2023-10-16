@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.artnest.springSecurity.dto.UserListDto;
 import com.artnest.springSecurity.dto.request.UserRequestDto;
 import com.artnest.springSecurity.dto.response.UserResponseDto;
 import com.artnest.springSecurity.service.UserService;
@@ -18,7 +19,7 @@ import lombok.RequiredArgsConstructor;
 
 
 @RestController
-@RequestMapping("/api/v1/user")
+@RequestMapping("/api/v1/auth/user")
 @RequiredArgsConstructor
 public class UserController {
 	
@@ -36,7 +37,11 @@ public class UserController {
 	 		List<UserResponseDto> userList=userService.getAllUser();
 		 	return userList.size()>0? ResponseEntity.status(200).body(userList):
 		 		ResponseEntity.status(404).body(userList);
-		}
-	
+	}
+
+	  @GetMapping("/all-info")
+    public List<UserListDto> getAllUserInfo() {
+        return userService.getAllUserInfo();
+    }
 
 }

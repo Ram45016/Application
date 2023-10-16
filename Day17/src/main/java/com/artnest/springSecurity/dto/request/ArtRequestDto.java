@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ArtRequestDto {
-    private String title;
-    private String fileLocation;
+    private String name;
+    private String type;
+    private String fileBytes;
 }

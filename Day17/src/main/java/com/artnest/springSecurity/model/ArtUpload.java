@@ -18,6 +18,7 @@ public class ArtUpload {
     @Id
     @GeneratedValue(strategy =GenerationType.UUID)
     private String artId;
-    private String title;
-    private String fileLocation;
+    private String name;
+    private String type;
+    private String fileBytes;
 }

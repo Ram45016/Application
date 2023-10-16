@@ -3,9 +3,11 @@ package com.artnest.springSecurity.service.impl;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.artnest.springSecurity.dto.UserListDto;
 import com.artnest.springSecurity.dto.request.UserRequestDto;
 import com.artnest.springSecurity.dto.response.UserResponseDto;
 import com.artnest.springSecurity.model.User;
@@ -55,6 +57,21 @@ public class UserServiceImp implements UserService{
 		}
 	
 		return userResponseList;
+	}
+	@Override
+	 public List<String> getAllUserNames() {
+        List<User> users = userRepository.findAll();
+        List<String> userNames = users.stream()
+            .map(User::getName)
+            .collect(Collectors.toList());
+        return userNames;
+    }
+	@Override
+	public List<UserListDto> getAllUserInfo() {
+	    List<User> users = userRepository.findAll();
+    return users.stream()
+        .map(user -> new UserListDto(user.getId(), user.getName()))
+        .collect(Collectors.toList());
 	}
 	
 	

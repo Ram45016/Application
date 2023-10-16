@@ -1,13 +1,13 @@
 package com.artnest.springSecurity.repository;
 
+
+import com.artnest.springSecurity.model.ArtUpload;
+
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import com.artnest.springSecurity.model.ArtUpload;
+public interface ArtRepository extends JpaRepository<ArtUpload, Long> {
 
-public interface ArtRepository extends JpaRepository<ArtUpload,String>{
-
-    Optional<ArtUpload> existsByTitle(String title);
-
+    Optional<ArtUpload> existsByName(String name);
 }
